@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /*Faz o app ocupar toda altura da tela */ 
+}
+
+.main-content {
+    display: flex;
+    flex: 1; /*Preenche o espaço entre header e footer */
+}
+
+.content-area {
+    flex:1; /*Area central que preenche o espaço restante */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que os produtos quebrem linha se necessário */
+    gap: 16px; /* Espaçamento entre os produtos */
+    justify-content: center; /* Centraliza os produtos horizontalmente */
+}
+
