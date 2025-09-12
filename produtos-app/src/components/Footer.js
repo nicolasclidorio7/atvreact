@@ -1,7 +1,7 @@
-import react from 'react';
-import "/footer.css";
+import React from 'react';
+import "./Footer.css";
 
-function footer() {
+function Footer() {
     return (
         <footer className="footer">
             <p>© 2025 Minha Loja. Todos os direitos reservados.</p>
@@ -9,4 +9,4 @@ function footer() {
     );
 }
 
-export default footer;
+export default Footer;
