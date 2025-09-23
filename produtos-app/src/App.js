@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Productcard from "./components/Productcard";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
+import TaskList from "./components/TaskList";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
    <div className="main-content">
         <Sidebar /> 
         
+
    <div className="content-area">
         {products.map((product) => (
           <Productcard
@@ -29,10 +31,12 @@ function App() {
             description={product.description}
           />
         ))}
-        </div>
-        </div>
-      <Footer />
-    </div>    
+        {/* Componente interativo de lista */}
+        <TaskList />
+      </div>
+    </div>
+    <Footer />
+  </div>
   );
 }
 
