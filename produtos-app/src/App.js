@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import TaskList from "./components/TaskList";
 import "./App.css";
+import { CartProvider } from "./components/CartContext";
 
 function App() {
   const products = [
@@ -16,27 +17,28 @@ function App() {
 
 
   return (
-   <div className="app-container">
-      <Header />
-   <div className="main-content">
-        <Sidebar /> 
-        
-
-   <div className="content-area">
-        {products.map((product) => (
-          <Productcard
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            description={product.description}
-          />
-        ))}
-        {/* Componente interativo de lista */}
-        <TaskList />
+    <CartProvider>
+      <div className="app-container">
+        <Header />
+        <div className="main-content">
+          <Sidebar />
+          <div className="content-area">
+            {products.map((product) => (
+              <Productcard
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                description={product.description}
+                id={product.id}
+              />
+            ))}
+            {/* Componente interativo de lista */}
+            <TaskList />
+          </div>
+        </div>
+        <Footer />
       </div>
-    </div>
-    <Footer />
-  </div>
+    </CartProvider>
   );
 }
 

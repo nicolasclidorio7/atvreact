@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Productcard.css";
 
-function Productcard({ name, price, description, image }) {
-  const [itemQuantity, setItemQuantity] = useState(0);
+import { useCart } from "./CartContext";
+
+function Productcard({ id, name, price, description, image }) {
+  const { cart, addToCart, removeFromCart } = useCart();
+  const item = cart.find((item) => item.id === id);
+  const itemQuantity = item ? item.quantity : 0;
 
   const handleAddItem = () => {
-    setItemQuantity(itemQuantity + 1);
+    addToCart({ id, name, price, description, image });
   };
 
   const handleRemoveItem = () => {
-    if (itemQuantity > 0) {
-      setItemQuantity(itemQuantity - 1);
-    }
+    removeFromCart(id);
   };
 
   return (
